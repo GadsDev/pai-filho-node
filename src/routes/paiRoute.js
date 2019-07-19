@@ -25,8 +25,7 @@ module.exports = {
                     failAction,
                     query: {
                         skip: joi.number().integer().default(0),
-                        limit: joi.number().integer().default(10),
-                        nome: joi.string().min(3).max(100)
+                        limit: joi.number().integer().default(10),                        
                     },                  
                 }         
             },
