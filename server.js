@@ -25,7 +25,7 @@ const hapiCors = require('hapi-cors');
 
 const mongoConnect = require('./src/db/connect');
 //Rotas 
-//const filhoRoute = require('./src/routes/filhoRoute');
+const filhoRoute = require('./src/routes/filhoRoute');
 const paiRoute = require('./src/routes/paiRoute');
 
 // Criar o servidor com suas configurações
@@ -38,9 +38,9 @@ async function connectServer() {
     // Rotas     
     server.route(paiRoute.list());
     server.route(paiRoute.create()); 
-    
-    //server.route(filhoRoute.create());
-    //server.route(filhoRoute.list());
+
+    server.route(filhoRoute.create());
+    server.route(filhoRoute.list());
 
     // Config do Swagger
     const swaggerOptions = {
