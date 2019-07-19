@@ -1,0 +1,24 @@
+{
+  "name": "pai-filho-crud",
+  "version": "1.0.0",
+  "description": "Crud para cadastrar um pai e um filho conectado",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"   
+  },
+  "repository": "https://github.com/GadsDev/pai-filho-node",
+  "author": "GadsDev <gusttavo212@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "assert": "^2.0.0",
+    "boom": "^7.3.0",
+    "dotenv": "^8.0.0",
+    "hapi": "^18.1.0",
+    "hapi-cors": "^1.0.3",
+    "hapi-swagger": "^10.0.2",
+    "inert": "^5.1.3",
+    "mongoose": "^5.6.1",
+    "path": "^0.12.7",
+    "vision": "^5.4.4"
+  }
+}
