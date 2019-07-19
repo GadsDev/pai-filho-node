@@ -23,9 +23,9 @@ const Vision = require('vision');
 const HapiSwagger = require('hapi-swagger');
 const hapiCors = require('hapi-cors');
 
-const mongoConnect = require('./src/db/mongodb/mongoConnect');
+const mongoConnect = require('./src/db/connect');
 //Rotas 
-const filhoRoute = require('./src/routes/filhoRoute');
+//const filhoRoute = require('./src/routes/filhoRoute');
 const paiRoute = require('./src/routes/paiRoute');
 
 // Criar o servidor com suas configurações
@@ -35,12 +35,12 @@ const server = Hapi.Server({
 
 //Função que conecta o servidor
 async function connectServer() {
-    // Rotas   
-    server.route(filhoRoute.create());
-    server.route(filhoRoute.list());
-
+    // Rotas     
     server.route(paiRoute.list());
     server.route(paiRoute.create()); 
+    
+    //server.route(filhoRoute.create());
+    //server.route(filhoRoute.list());
 
     // Config do Swagger
     const swaggerOptions = {
