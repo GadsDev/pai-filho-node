@@ -25,9 +25,8 @@ const hapiCors = require('hapi-cors');
 
 const mongoConnect = require('./src/db/mongodb/mongoConnect');
 //Rotas 
-const pizaRoute = require('./src/routes/pizzaRoute');
-const clientRoute = require('./src/routes/clienteRoute');
-const pedidoRoute = require('./src/routes/pedidoRoute');
+const filhoRoute = require('./src/routes/filhoRoute');
+const paiRoute = require('./src/routes/paiRoute');
 
 // Criar o servidor com suas configurações
 const server = Hapi.Server({
@@ -37,22 +36,16 @@ const server = Hapi.Server({
 //Função que conecta o servidor
 async function connectServer() {
     // Rotas   
-    server.route(pizaRoute.create());
-    server.route(pizaRoute.list());
+    server.route(filhoRoute.create());
+    server.route(filhoRoute.list());
 
-    server.route(clientRoute.list());
-    server.route(clientRoute.create());
-    server.route(clientRoute.update());
-    server.route(clientRoute.delete());
-
-    server.route(pedidoRoute.list());
-    server.route(pedidoRoute.create());
-
+    server.route(paiRoute.list());
+    server.route(paiRoute.create()); 
 
     // Config do Swagger
     const swaggerOptions = {
         info: {
-            title: 'API-Pizzaria',
+            title: 'API-Pai-Filho',
             version: 'v1.0',
         },
         lang: 'pt',
