@@ -4,8 +4,8 @@ module.exports = {
         return schema.create(item);
     },
 
-    read(schema, query) {
-        return schema.find(query);
+    read(schema, query, skip= 0, limit= 10) {     
+        return schema.find(query).skip(skip).limit(limit); 
     },
 
     update(schema, id, item) {

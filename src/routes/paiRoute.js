@@ -19,7 +19,16 @@ module.exports = {
             config: {
                 tags: ['Pai'],
                 description: 'Deve listar pais',
-                notes: 'Filtrar por nome',               
+                notes: 'Filtrar por nome',      
+                validate: {                   
+                    //query => ?skip=10&limit=0&nome=deve
+                    failAction,
+                    query: {
+                        skip: joi.number().integer().default(0),
+                        limit: joi.number().integer().default(10),
+                        nome: joi.string().min(3).max(100)
+                    },                  
+                }         
             },
             handler: (request, headers) => {
                 try {
@@ -52,7 +61,14 @@ module.exports = {
             config: {
                 tags: ['Cliente'],
                 description: 'Deve cadastrar pai',
-                notes: 'Deve cadastrar com seus dados',               
+                notes: 'Deve cadastrar com seus dados',  
+                validate: {
+                    failAction,
+                    payload: {
+                        nome: joi.string().required().min(3).max(100),
+                        nascimento: joi.string().required().min(2).max(50)
+                    },                   
+                }             
             },
             handler: async (request) => {
                 try {
